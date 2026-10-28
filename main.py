@@ -21,6 +21,9 @@ def getTaskById(taskId:int):
 
 @app.post("/task")
 def addTask(task:Task):
+    for i in range (len(tasks)):
+        if tasks[i].taskId ==task.taskId or tasks[i].taskName ==task.taskName:
+            return "Task already added"
     tasks.append(task)
     return task
 
